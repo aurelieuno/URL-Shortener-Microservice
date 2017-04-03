@@ -1,0 +1,65 @@
+<html>
+
+  <head>
+    <title>myproject2</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Pacifico|Prociono|Shrikhand" rel="stylesheet">
+
+ <script>
+$(document).ready(function() {
+var date1 = new Date();
+
+      function zeroFill (i) {
+  return (i < 10 ? '0' : '') + i
+}
+
+        function now () {
+  var d = new Date()
+  return d.getFullYear() + '-' +
+    zeroFill(d.getMonth() + 1) + '-' +
+    zeroFill(d.getDate()) + ' ' +
+    zeroFill(d.getHours()) + ':' +
+    zeroFill(d.getMinutes())
+}
+
+var date2 = now();
+
+$("<h4>").text(date1).css("color", "DeepPink").css("font-family", "Shrikhand").
+css("text-align", "center").appendTo("#h1");
+
+$("<h4>").text(date2).css("color", "blue").css("font-family", "Shrikhand").
+css("text-align", "center").appendTo("#h1");
+});
+</script>
+
+  </head>
+
+    <body>
+        <div class="container">
+            <h1 id ="h1" class="header">
+                Request Header Parser Microservice
+            </h1>
+            <blockquote>
+                User stories:
+                <ul>1) I can get the IP address, language and operating system for my browser
+                </ul>
+            </blockquote>
+
+            <h4><a href="/click-me">Click-me!</a><h4>
+
+            <h3>Example usage:</h3>
+            <code>https://parser.herokuapp.com/click-me</code><br>
+            <h3>Example output:</h3>
+            <code>
+              {"ipaddress":"162.250.64.10","language":"en-US","software":"Windows NT 6.1; WOW64"}
+            </code>
+
+
+
+
+        </div>
+    </body>
+
+</html>
