@@ -28,7 +28,7 @@ app.set('view engine', 'pug')
          });
 
        app.use("/new",function (req, res, next) {
-        var hostname = req.hostname+"/"+app.get("port");
+        var hostname = "https://"+req.hostname+"/"+app.get("port");
         var originalURL =  req.originalUrl.slice(5);
       res.send({
       	"short-url" : hostname,
