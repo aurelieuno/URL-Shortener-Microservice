@@ -27,17 +27,18 @@ app.set('view engine', 'pug')
       res.sendFile(path.join(__dirname+'/index.html'));
          });
 
-
-    app.get('/click-me', function(req, res){
-      res.send({"os" : req.useragent.os,
-      	//"baseURL" : req.baseURL,
-      	//"hostname" : req.hostname,
-      	"ipaddress" : req.ip,
-      	//"originalURL" : req.originalURL,
-      	//"path" : req.path,
-      	//"route" : req.route,
-      	"language" : req.acceptsLanguages()[0]})
+       app.use("/new",function (req, res, next) {
+        var hostname = req.hostname+"/"+app.get("port");
+        var originalURL =  req.originalUrl.slice(5);
+      res.send({
+      	"short-url" : hostname,
+      	"original-url" : originalURL,
          });
+
+      app.use("/"+app.get("port"),function(req,res,next){
+        res.redirect(originalURL);
+      });
+    })
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

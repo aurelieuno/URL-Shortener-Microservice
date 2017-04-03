@@ -1,7 +1,7 @@
 <html>
 
   <head>
-    <title>myproject2</title>
+    <title>myproject3</title>
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -39,25 +39,26 @@ css("text-align", "center").appendTo("#h1");
     <body>
         <div class="container">
             <h1 id ="h1" class="header">
-                Request Header Parser Microservice
+                URL Shortener Microservice
             </h1>
             <blockquote>
                 User stories:
-                <ul>1) I can get the IP address, language and operating system for my browser
+                <ul> 1) I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+                </ul>
+                 <ul> 2) When I visit that shortened URL, it will redirect me to my original link.
                 </ul>
             </blockquote>
 
-            <h4><a href="/click-me">Click-me!</a><h4>
-
-            <h3>Example usage:</h3>
-            <code>https://parser.herokuapp.com/click-me</code><br>
-            <h3>Example output:</h3>
+            <h3>Example usage (insert /new between the URL and the URL parameter) :</h3>
+            <code>https://little-url.herokuapp.com/new/https://www.google.com</code><br>
+            <h3>Example creation output:</h3>
             <code>
-              {"ipaddress":"162.250.64.10","language":"en-US","software":"Windows NT 6.1; WOW64"}
+             {"original-url":"https://www.google.com","short_url":"https://little-url.herokuapp.com/1201"}
             </code>
-
-
-
+             <h3>Example usage of the shortened URL</h3>
+             <code>https://little-url.herokuapp.com/1201</code><br>
+            <h3>This will redirect me to : </h3>
+             <code>https://www.google.com</code><br>
 
         </div>
     </body>
